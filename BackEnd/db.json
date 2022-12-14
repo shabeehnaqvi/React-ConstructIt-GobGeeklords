@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "jhon",
+      "Level": "2"
+    }
+  ],
+  "Engineers": [
+    {
+      "id": 1,
+      "name": "Jason Smith",
+      "Level": "1"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 1,
+      "jobspostebdby": "some comment",
+      "postId": 1
+    }
+  ]
+}

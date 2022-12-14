@@ -1,0 +1,37 @@
+.header {
+  height: 100px;
+  background-color: blue;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.header .img-logo {
+  width: 8%;
+}
+
+.header .links-list {
+  width: 84%;
+}
+
+.header button {
+  width: 8%;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(242, 71, 71);
+  color: white;
+  padding: 5px;
+}
+
+.header .links-list a{
+  color:white;
+  text-decoration: none;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.my-container {
+  margin-top: 20px;
+  width: 100%;
+  padding: 50px;
+}
