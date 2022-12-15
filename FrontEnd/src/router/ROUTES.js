@@ -3,6 +3,7 @@ import Jobs from "../components/jobs/Jobs";
 import Profile from "../components/profile/Profile";
 import Signup from "../components/signup/Signup";
 import Login from "../components/login/Login";
+import Errror from "../components/Errror";
 
 const ROUTES = [
   {
@@ -38,6 +39,13 @@ const ROUTES = [
     title: "Login",
     element: <Login />,
     path: "/",
+    isProtected: false,
+  },
+  {
+    key: 6,
+    title: "Error",
+    element: <Errror />,
+    path: "/error",
     isProtected: false,
   },
 ];

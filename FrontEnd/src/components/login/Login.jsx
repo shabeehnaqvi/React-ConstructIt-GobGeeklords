@@ -31,12 +31,7 @@ const Login = () => {
 
   const addData = (e) => {
     e.preventDefault();
-    const getuserArr = localStorage.getItem("useryoutube");
-    // fetch("http://localhost:3001/users1")
-      // .then((response) => response.json())
-      // .then((data) => {
-        // getuserArr = data;
-      
+    const getuserArr = JSON.parse(localStorage.getItem("useryoutube"));                               
 
     const { email, password } = inpval;
     if (email === "") {
@@ -69,10 +64,9 @@ const Login = () => {
           toast("invalid details");
         } else {
           console.log("user login succesfulyy");
-          
           localStorage.setItem("user_login", JSON.stringify(userlogin));
-
-          history("/details");
+          localStorage.setItem("islogin", true);
+          history("/home");
         }
       }
     };
@@ -83,7 +77,7 @@ const Login = () => {
       <div className="container mt-3">
         <section className="d-flex justify-content-between">
           <div className="left_data mt-3 p-3" style={{ width: "100%" }}>
-            <h3 className="text-center col-lg-6">Sign IN</h3>
+            <h3 className="text-center col-lg-6">Login</h3>
             <Form>
               <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
                 <Form.Control
@@ -116,7 +110,7 @@ const Login = () => {
               </Button>
             </Form>
             <p className="mt-3">
-              Already Have an Account <span>SignIn</span>{" "}
+              Don't Have an Account? <span onClick={()=>{history("/signup");}}>SignUp</span>{" "}
             </p>
           </div>
         </section>
