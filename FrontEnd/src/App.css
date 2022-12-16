@@ -23,15 +23,32 @@
   padding: 5px;
 }
 
-.header .links-list a{
-  color:white;
+.header .links-list a {
+  color: white;
   text-decoration: none;
   margin-right: 20px;
   cursor: pointer;
 }
 
+.header .links-list a:hover {
+  color: rgb(235, 128, 128);
+  text-decoration: underline;
+}
+
 .my-container {
   margin-top: 20px;
+  width: 100%;
+  padding: 50px;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.my-container2 {
   width: 100%;
   padding: 50px;
 }

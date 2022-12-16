@@ -13,14 +13,8 @@ const Login = () => {
     password: "",
   });
 
-  console.log(inpval);
-
   const getdata = (e) => {
-    // console.log(e.target.value);
-
     const { value, name } = e.target;
-    // console.log(value,name);
-
     setInpval(() => {
       return {
         ...inpval,
@@ -31,7 +25,7 @@ const Login = () => {
 
   const addData = (e) => {
     e.preventDefault();
-    const getuserArr = JSON.parse(localStorage.getItem("useryoutube"));                               
+    const getuserArr = JSON.parse(localStorage.getItem("user_data"));
 
     const { email, password } = inpval;
     if (email === "") {
@@ -51,9 +45,7 @@ const Login = () => {
         position: "top-center",
       });
     } else {
-       
       if (getuserArr && getuserArr.length) {
-        
         //const userdata = JSON.parse(getuserArr);
 
         const userlogin = getuserArr.filter((el, k) => {
@@ -69,17 +61,17 @@ const Login = () => {
           history("/home");
         }
       }
-    };
+    }
   };
 
   return (
-    <>
-      <div className="container mt-3">
-        <section className="d-flex justify-content-between">
-          <div className="left_data mt-3 p-3" style={{ width: "100%" }}>
-            <h3 className="text-center col-lg-6">Login</h3>
+    <div className="my-container ">
+      <div className="mt-3 text-center w-25">
+        <div className="row col-md-12 col-sm-12 col-lg-12 col-xl-12">
+          <div className="mt-3 p-3" style={{ width: "100%" }}>
+            <h3 className="text-center mb-5">Login</h3>
             <Form>
-              <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+              <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control
                   type="email"
                   name="email"
@@ -88,10 +80,7 @@ const Login = () => {
                 />
               </Form.Group>
 
-              <Form.Group
-                className="mb-3 col-lg-6"
-                controlId="formBasicPassword"
-              >
+              <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Control
                   type="password"
                   name="password"
@@ -101,7 +90,7 @@ const Login = () => {
               </Form.Group>
               <Button
                 variant="primary"
-                className="col-lg-6"
+                className="col-lg-12"
                 onClick={addData}
                 style={{ background: "rgb(67, 185, 127)" }}
                 type="submit"
@@ -110,13 +99,21 @@ const Login = () => {
               </Button>
             </Form>
             <p className="mt-3">
-              Don't Have an Account? <span onClick={()=>{history("/signup");}}>SignUp</span>{" "}
+              Don't Have an Account?{" "}
+              <span
+                style={{ color: "rgb(67, 185, 127)", cursor: "pointer" }}
+                onClick={() => {
+                  history("/signup");
+                }}
+              >
+                Register Now
+              </span>{" "}
             </p>
           </div>
-        </section>
-        <ToastContainer />
+          <ToastContainer />
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

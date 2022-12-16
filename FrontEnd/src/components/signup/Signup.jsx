@@ -6,29 +6,21 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Signup() {
-   
   const history = useNavigate();
-  function changegender(e){
-    setData(e)
+  function changegender(e) {
+    setData(e);
   }
   const [inpval, setInpval] = useState({
     name: "",
     email: "",
     date: "",
     password: "",
-    gender:"",
-
+    gender: "",
   });
 
   const [data, setData] = useState([]);
-//   console.log(inpval);
-
   const getdata = (e) => {
-    // console.log(e.target.value);
-
     const { value, name } = e.target;
-    // console.log(value,name);
-
     setInpval(() => {
       return {
         ...inpval,
@@ -37,7 +29,6 @@ function Signup() {
     });
   };
 
-  
   const addData = (e) => {
     e.preventDefault();
 
@@ -69,45 +60,39 @@ function Signup() {
       });
     } else {
       console.log("data added succesfully");
-      history("/login");
-      localStorage.setItem("useryoutube", JSON.stringify([...data, inpval]));
+      localStorage.setItem("islogin", true);
+      localStorage.setItem("user_data", JSON.stringify([...data, inpval]));
+      history("/home");
     }
-    console.log(inpval)
-    const user =  {
-        "id":4,
-        "email": email,
-        "name": name,
-        "password": password,
-        "gender": 'male',
-        "dob": date
-  
-        
-      }
-    fetch("http://localhost:3001/users1", {
-            method: 'POST',
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify(user)
-        })
-            .then(res => {
-                if (res.status >= 200 && res.status <= 300) {
-                    toast('Success!');
-                }
-                else {
-                    toast('Failed!')
-                }
-            })
-            
+    // const user = {
+    //   id: 4,
+    //   email: email,
+    //   name: name,
+    //   password: password,
+    //   gender: "male",
+    //   dob: date,
+    // };
+    // fetch("http://localhost:3001/users1", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(user),
+    // }).then((res) => {
+    //   if (res.status >= 200 && res.status <= 300) {
+    //     toast("Success!");
+    //   } else {
+    //     toast("Failed!");
+    //   }
+    // });
   };
 
   return (
-    <>
-      <div className="container mt-3 text-center w-25">
+    <div className="my-container ">
+      <div className="mt-3 text-center w-25">
         <div className="row col-md-12 col-sm-12 col-lg-12 col-xl-12">
-        {/* <section className="d-flex justify-content-between"> */}
-          <div className="left_data mt-3 p-3" style={{ width: "100%" }}>
-            <h3 className="">Register</h3>
+          <div className="mt-3 p-3" style={{ width: "100%" }}>
+            <h3 className="mb-5">Register</h3>
             <Form>
               <Form.Group className="mb-3" controlId="formBasicname">
                 <Form.Control
@@ -130,10 +115,7 @@ function Signup() {
                 <Form.Control onChange={getdata} name="date" type="date" />
               </Form.Group>
 
-              <Form.Group
-                className="mb-3"
-                controlId="formBasicPassword"
-              >
+              <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Control
                   type="password"
                   name="password"
@@ -149,9 +131,7 @@ function Signup() {
                     name="flexRadioDefault"
                     id="flexRadioDefault1"
                   />
-                  <label className="form-check-label" >
-                    User
-                  </label>
+                  <label className="form-check-label">User</label>
                 </div>
                 <div className="col">
                   <input
@@ -162,15 +142,13 @@ function Signup() {
                     onChange={changegender}
                     checked
                   />
-                  <label className="form-check-label" >
-                    Engineer
-                  </label>
+                  <label className="form-check-label">Engineer</label>
                 </div>
               </div>
 
               <Button
                 variant="primary"
-                className="col-lg-6"
+                className="col-lg-12"
                 onClick={addData}
                 style={{ background: "rgb(67, 185, 127)" }}
                 type="submit"
@@ -180,19 +158,24 @@ function Signup() {
             </Form>
             <p className="mt-3">
               <span>
-              Already Have an Account? <span onClick={()=>{history("/login");}}>SignIn</span>{" "}
+                Already Have an Account?
+                <span
+                  style={{ color: "rgb(67, 185, 127)", cursor: "pointer" }}
+                  onClick={() => {
+                    history("/login");
+                  }}
+                >
+                  Login Now
+                </span>{" "}
               </span>{" "}
             </p>
           </div>
-        {/* </section> */}
-        <ToastContainer />
+          {/* </section> */}
+          <ToastContainer />
+        </div>
       </div>
-      </div>
-    </>
+    </div>
   );
-};
+}
 
-export default Signup
-
-
-
+export default Signup;
