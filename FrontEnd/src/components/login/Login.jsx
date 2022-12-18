@@ -4,7 +4,6 @@ import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 const Login = () => {
   const history = useNavigate();
 
@@ -65,9 +64,10 @@ const Login = () => {
   };
 
   return (
-    <div className="my-container ">
+    
+    <div className="my-container" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80)` , backgroundRepeat:'no-repeat'}} >
       <div className="mt-3 text-center w-25">
-        <div className="row col-md-12 col-sm-12 col-lg-12 col-xl-12">
+        <div className="row col-md-12 col-sm-12 col-lg-12 col-xl-12 border rounded-5" style={{background: `rgba(255, 255, 255, 0.5)`}} >
           <div className="mt-3 p-3" style={{ width: "100%" }}>
             <h3 className="text-center mb-5">Login</h3>
             <Form>
@@ -101,7 +101,7 @@ const Login = () => {
             <p className="mt-3">
               Don't Have an Account?{" "}
               <span
-                style={{ color: "rgb(67, 185, 127)", cursor: "pointer" }}
+                style={{ color: "navy", cursor: "pointer" }}
                 onClick={() => {
                   history("/signup");
                 }}

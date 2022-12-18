@@ -88,9 +88,9 @@ function Signup() {
   };
 
   return (
-    <div className="my-container ">
+    <div className="my-container" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80)` , backgroundRepeat:'no-repeat'}} >
       <div className="mt-3 text-center w-25">
-        <div className="row col-md-12 col-sm-12 col-lg-12 col-xl-12">
+        <div className="row col-md-12 col-sm-12 col-lg-12 col-xl-12 border rounded-5" style={{background: `rgba(255, 255, 255, 0.5)`}} >
           <div className="mt-3 p-3" style={{ width: "100%" }}>
             <h3 className="mb-5">Register</h3>
             <Form>
