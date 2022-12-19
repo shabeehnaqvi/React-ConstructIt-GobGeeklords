@@ -6,6 +6,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Signup() {
+  const changeRadio = (id) => {
+    inpval["role"] = id;
+  };
+
   const history = useNavigate();
   function changegender(e) {
     setData(e);
@@ -15,7 +19,7 @@ function Signup() {
     email: "",
     date: "",
     password: "",
-    gender: "",
+    role: "",
   });
 
   const [data, setData] = useState([]);
@@ -32,7 +36,7 @@ function Signup() {
   const addData = (e) => {
     e.preventDefault();
 
-    const { name, email, date, password } = inpval;
+    const { name, email, date, password, role } = inpval;
 
     if (name === "") {
       toast.error(" name field is requred!", {
@@ -60,39 +64,89 @@ function Signup() {
       });
     } else {
       console.log("data added succesfully");
-      localStorage.setItem("islogin", true);
+      // localStorage.setItem("islogin", true);
       localStorage.setItem("user_data", JSON.stringify([...data, inpval]));
-      history("/home");
-    }
-    // const user = {
-    //   id: 4,
-    //   email: email,
-    //   name: name,
-    //   password: password,
-    //   gender: "male",
-    //   dob: date,
-    // };
-    // fetch("http://localhost:3001/users1", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(user),
-    // }).then((res) => {
-    //   if (res.status >= 200 && res.status <= 300) {
-    //     toast("Success!");
-    //   } else {
-    //     toast("Failed!");
-    //   }
-    // });
-  };
+      //history("/home");
 
+      let userlength = 0;
+      if (role == "User") {
+        fetch("http://localhost:3001/users")
+          .then((response) => response.json())
+          .then((data) => {
+            userlength = data.length;
+
+            const user = {
+              id: userlength + 1,
+              email: email,
+              name: name,
+              password: password,
+              role: role,
+              dob: date,
+            };
+
+            fetch("http://localhost:3001/users", {
+              method: "POST",
+              headers: {
+                "Content-type": "application/json",
+              },
+              body: JSON.stringify(user),
+            }).then((res) => {
+              if (res.status >= 200 && res.status <= 300) {
+                toast("Congragulation User");
+                toast("Successfuly Registered!");
+              } else {
+                toast("Failed! Contact Support");
+              }
+            });
+          });
+      } else {
+        toast("Congragulation Engineer");
+        fetch("http://localhost:3001/Engineer")
+          .then((response) => response.json())
+          .then((data) => {
+            userlength = data.length;
+
+            const user = {
+              id: userlength + 1,
+              email: email,
+              name: name,
+              password: password,
+              role: role,
+              dob: date,
+            };
+            fetch("http://localhost:3001/Engineers", {
+              method: "POST",
+              headers: {
+                "Content-type": "application/json",
+              },
+              body: JSON.stringify(user),
+            }).then((res) => {
+              if (res.status >= 200 && res.status <= 300) {
+                toast("Successfuly Registered!");
+              } else {
+                toast("Failed! Contact Support");
+              }
+            });
+          });
+      }
+    }
+  };
   return (
-    <div className="my-container" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80)` , backgroundRepeat:'no-repeat'}} >
+    <div
+      className="my-container"
+      style={{
+        backgroundImage: `url(https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80)`,
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="mt-3 text-center w-25">
-        <div className="row col-md-12 col-sm-12 col-lg-12 col-xl-12 border rounded-5" style={{background: `rgba(255, 255, 255, 0.5)`}} >
+        <div
+          className="row col-md-12 col-sm-12 col-lg-12 col-xl-12 border rounded-5"
+          style={{ background: `rgba(255, 255, 255, 0.5)` }}
+        >
           <div className="mt-3 p-3" style={{ width: "100%" }}>
             <h3 className="mb-5">Register</h3>
+
             <Form>
               <Form.Group className="mb-3" controlId="formBasicname">
                 <Form.Control
@@ -128,8 +182,10 @@ function Signup() {
                   <input
                     className="form-check-input mr-1"
                     type="radio"
-                    name="flexRadioDefault"
+                    value="User"
+                    name="role"
                     id="flexRadioDefault1"
+                    onChange={changeRadio.bind(this, "User")}
                   />
                   <label className="form-check-label">User</label>
                 </div>
@@ -137,10 +193,10 @@ function Signup() {
                   <input
                     className="form-check-input mr-1"
                     type="radio"
-                    name="flexRadioDefault"
+                    value="Engineer"
+                    name="role"
                     id="flexRadioDefault2"
-                    onChange={changegender}
-                    checked
+                    onChange={changeRadio.bind(this, "Engineer")}
                   />
                   <label className="form-check-label">Engineer</label>
                 </div>
