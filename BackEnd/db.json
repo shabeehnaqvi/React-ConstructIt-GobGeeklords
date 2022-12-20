@@ -10,93 +10,62 @@
     },
     {
       "id": 2,
-      "email": "s2222@gm12ail.com",
-      "name": "Shabeeh121",
-      "password": "shavee",
+      "email": "shabeeh@gmail.com",
+      "name": "shabeeh",
+      "password": "shabeeh",
       "role": "User",
-      "dob": "0001-11-07"
-    },
-    {
-      "id": 3,
-      "email": "s2222@gm12ail.com",
-      "name": "Shabeeh121",
-      "password": "shavee",
-      "role": "User",
-      "dob": "0001-11-07"
-    },
-    {
-      "id": 4,
-      "email": "s2222@gm12ail.com",
-      "name": "Shabeeh121",
-      "password": "shavee",
-      "role": "User",
-      "dob": "0001-11-07"
-    },
-    {
-      "id": 5,
-      "email": "s2222@gm12ail.com",
-      "name": "Shabeeh121",
-      "password": "shavee",
-      "role": "User",
-      "dob": "0001-11-07"
-    },
-    {
-      "id": 6,
-      "email": "s2222@gm12ail.com",
-      "name": "Shabeeh121",
-      "password": "shavee",
-      "role": "User",
-      "dob": "0001-11-07"
-    },
-    {
-      "id": 7,
-      "email": "s2222@gm12ail.com",
-      "name": "Shabeeh121",
-      "password": "shavee",
-      "role": "User",
-      "dob": "0001-11-07"
-    },
-    {
-      "id": 8,
-      "email": "s2222@gm12ail.com",
-      "name": "Shabeeh121",
-      "password": "shavee",
-      "role": "User",
-      "dob": "0001-11-07"
-    },
-    {
-      "id": 9,
-      "email": "s2222@gm12ail.com",
-      "name": "Shabeeh121",
-      "password": "shavee",
-      "role": "User",
-      "dob": "0001-11-07"
-    },
-    {
-      "id": 10,
-      "email": "s2222@gm12ail.com",
-      "name": "Shabeeh121",
-      "password": "shavee",
-      "role": "User",
-      "dob": "0001-11-07"
-    },
-    {
-      "id": 11,
-      "email": "s2222@gm12ail.com",
-      "name": "Shabeeh121",
-      "password": "shavee",
-      "role": "User",
-      "dob": "0001-11-07"
-    },
-    {
-      "id": 12,
-      "email": "s2222@gm12ail.com",
-      "name": "Shabeeh121",
-      "password": "shavee",
-      "role": "User",
-      "dob": "0001-11-07"
+      "dob": "1996-11-11"
     }
   ],
   "Engineers": [],
-  "jobs": []
+  "jobs": [
+    {
+      "firstName": "Shabeeh",
+      "lastName": "Hassan",
+      "address": "Old Grain Market Ghala Mandi",
+      "city": "Lodhran",
+      "state": "Punjab",
+      "date": "2022-12-22",
+      "details": "Wall needs to be repaired",
+      "method": "Cash",
+      "budget": "2500",
+      "worker": "10",
+      "": "Shabeeh",
+      "approved": false,
+      "completed": false,
+      "id": 1
+    },
+    {
+      "firstName": "Shabeeh",
+      "lastName": "Hassan",
+      "address": "Old Grain Market Ghala Mandi",
+      "city": "Lodhran",
+      "state": "Punjab",
+      "date": "2022-12-22",
+      "details": "Wall needs to be repaired",
+      "method": "Cash",
+      "budget": "2500",
+      "worker": "10",
+      "": "Shabeeh",
+      "approved": false,
+      "completed": false,
+      "id": 2
+    },
+    {
+      "firstName": "Shabeeh",
+      "lastName": "Hassan",
+      "address": "Old Grain Market Ghala Mandi",
+      "city": "Lodhran",
+      "state": "Punjab",
+      "date": "2022-12-22",
+      "details": "Wall needs to be repaired",
+      "method": "Cash",
+      "budget": "2500",
+      "worker": "10",
+      "": "Shabeeh",
+      "approved": false,
+      "completed": false,
+      "id": 3
+    }
+  ]
 }
