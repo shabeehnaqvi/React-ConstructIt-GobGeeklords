@@ -24,43 +24,44 @@ const Login = () => {
 
   const addData = (e) => {
     e.preventDefault();
-    const getuserArr = JSON.parse(localStorage.getItem("user_data"));
+    // const getuserArr = JSON.parse(localStorage.getItem("user_data"));
+    let getuserArr = "";
+    fetch("http://localhost:3001/Users")
+      .then((response) => response.json())
+      .then((data) => {
+        const { email, password } = inpval;
+        let database = data;
 
-    const { email, password } = inpval;
-    if (email === "") {
-      toast.error("email field is requred", {
-        position: "top-center",
-      });
-    } else if (!email.includes("@")) {
-      toast.error("plz enter valid email addres", {
-        position: "top-center",
-      });
-    } else if (password === "") {
-      toast.error("password field is requred", {
-        position: "top-center",
-      });
-    } else if (password.length < 5) {
-      toast.error("password length greater five", {
-        position: "top-center",
-      });
-    } else {
-      if (getuserArr && getuserArr.length) {
-        //const userdata = JSON.parse(getuserArr);
-
-        const userlogin = getuserArr.filter((el, k) => {
-          return el.email === email && el.password === password;
-        });
-
-        if (userlogin.length === 0) {
-          toast("invalid details");
+        if (email === "") {
+          toast.error("email field is requred", {
+            position: "top-center",
+          });
+        } else if (!email.includes("@")) {
+          toast.error("plz enter valid email addres", {
+            position: "top-center",
+          });
+        } else if (password === "") {
+          toast.error("password field is required", {
+            position: "top-center",
+          });
+        } else if (password.length < 5) {
+          toast.error("password length greater five", {
+            position: "top-center",
+          });
         } else {
-          console.log("user login succesfulyy");
-          localStorage.setItem("user_login", JSON.stringify(userlogin));
-          localStorage.setItem("islogin", true);
-          history("/home");
+          const user = database.find(
+            (data) => data.email == email && data.password == password
+          );
+
+          if (user) {
+            toast("Welcome " + user.name);
+            localStorage.setItem("islogin", true);
+            history("/home");
+          } else {
+            toast("invalid details");
+          }
         }
-      }
-    }
+      });
   };
 
   return (

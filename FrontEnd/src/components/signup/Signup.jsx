@@ -101,7 +101,7 @@ function Signup() {
           });
       } else {
         toast("Congragulation Engineer");
-        fetch("http://localhost:3001/Engineer")
+        fetch("http://localhost:3001/Engineers")
           .then((response) => response.json())
           .then((data) => {
             userlength = data.length;
