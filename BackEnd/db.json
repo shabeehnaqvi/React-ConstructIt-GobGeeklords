@@ -2,22 +2,101 @@
   "users": [
     {
       "id": 1,
-      "name": "jhon",
-      "Level": "2"
+      "email": "s2222@gm12ail.com",
+      "name": "Shabeeh121",
+      "password": "shavee",
+      "role": "User",
+      "dob": "0001-11-07"
+    },
+    {
+      "id": 2,
+      "email": "s2222@gm12ail.com",
+      "name": "Shabeeh121",
+      "password": "shavee",
+      "role": "User",
+      "dob": "0001-11-07"
+    },
+    {
+      "id": 3,
+      "email": "s2222@gm12ail.com",
+      "name": "Shabeeh121",
+      "password": "shavee",
+      "role": "User",
+      "dob": "0001-11-07"
+    },
+    {
+      "id": 4,
+      "email": "s2222@gm12ail.com",
+      "name": "Shabeeh121",
+      "password": "shavee",
+      "role": "User",
+      "dob": "0001-11-07"
+    },
+    {
+      "id": 5,
+      "email": "s2222@gm12ail.com",
+      "name": "Shabeeh121",
+      "password": "shavee",
+      "role": "User",
+      "dob": "0001-11-07"
+    },
+    {
+      "id": 6,
+      "email": "s2222@gm12ail.com",
+      "name": "Shabeeh121",
+      "password": "shavee",
+      "role": "User",
+      "dob": "0001-11-07"
+    },
+    {
+      "id": 7,
+      "email": "s2222@gm12ail.com",
+      "name": "Shabeeh121",
+      "password": "shavee",
+      "role": "User",
+      "dob": "0001-11-07"
+    },
+    {
+      "id": 8,
+      "email": "s2222@gm12ail.com",
+      "name": "Shabeeh121",
+      "password": "shavee",
+      "role": "User",
+      "dob": "0001-11-07"
+    },
+    {
+      "id": 9,
+      "email": "s2222@gm12ail.com",
+      "name": "Shabeeh121",
+      "password": "shavee",
+      "role": "User",
+      "dob": "0001-11-07"
+    },
+    {
+      "id": 10,
+      "email": "s2222@gm12ail.com",
+      "name": "Shabeeh121",
+      "password": "shavee",
+      "role": "User",
+      "dob": "0001-11-07"
+    },
+    {
+      "id": 11,
+      "email": "s2222@gm12ail.com",
+      "name": "Shabeeh121",
+      "password": "shavee",
+      "role": "User",
+      "dob": "0001-11-07"
+    },
+    {
+      "id": 12,
+      "email": "s2222@gm12ail.com",
+      "name": "Shabeeh121",
+      "password": "shavee",
+      "role": "User",
+      "dob": "0001-11-07"
     }
   ],
-  "Engineers": [
-    {
-      "id": 1,
-      "name": "Jason Smith",
-      "Level": "1"
-    }
-  ],
-  "jobs": [
-    {
-      "id": 1,
-      "jobspostebdby": "some comment",
-      "postId": 1
-    }
-  ]
+  "Engineers": [],
+  "jobs": []
 }
