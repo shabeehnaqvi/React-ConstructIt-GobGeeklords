@@ -33,7 +33,7 @@ const Login = () => {
         let database = data;
 
         if (email === "") {
-          toast.error("email field is requred", {
+          toast.error("Email field is requred", {
             position: "top-center",
           });
         } else if (!email.includes("@")) {
@@ -54,11 +54,12 @@ const Login = () => {
           );
 
           if (user) {
-            toast("Welcome " + user.name);
+            toast.success("Welcome " + user.name);
+            localStorage.setItem("user_login", JSON.stringify(user));
             localStorage.setItem("islogin", true);
             history("/home");
           } else {
-            toast("invalid details");
+            toast.error("invalid details");
           }
         }
       });
@@ -110,7 +111,7 @@ const Login = () => {
             <p className="mt-3">
               Don't Have an Account?{" "}
               <span
-                style={{ color: "navy", cursor: "pointer" }}
+                style={{ color: "rgb(67, 185, 127)", cursor: "pointer" }}
                 onClick={() => {
                   history("/signup");
                 }}

@@ -11,9 +11,7 @@ function Signup() {
   };
 
   const history = useNavigate();
-  function changegender(e) {
-    setData(e);
-  }
+
   const [inpval, setInpval] = useState({
     name: "",
     email: "",
@@ -69,7 +67,7 @@ function Signup() {
       //history("/home");
 
       let userlength = 0;
-      if (role == "User") {
+      if (role === "User") {
         fetch("http://localhost:3001/users")
           .then((response) => response.json())
           .then((data) => {
@@ -216,7 +214,7 @@ function Signup() {
               <span>
                 Already Have an Account?
                 <span
-                  style={{ color: "rgb(67, 185, 127)", cursor: "pointer" }}
+                  style={{ color: "navy", cursor: "pointer" }}
                   onClick={() => {
                     history("/login");
                   }}

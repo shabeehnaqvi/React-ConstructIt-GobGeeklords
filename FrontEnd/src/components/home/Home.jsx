@@ -14,7 +14,8 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import AddressForm from "./AddressfForm";
 import PaymentForm from "./PaymentForm";
-
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const steps = ["User Address", "Budget/Payment"];
 
 function getStepContent(step) {
@@ -31,14 +32,49 @@ function getStepContent(step) {
 const theme = createTheme();
 
 function Home() {
+  const history = useNavigate();
   const [activeStep, setActiveStep] = React.useState(0);
-
+  React.useEffect(() => {
+    toast("Welcome To Construct it");
+  }, []);
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
 
   const handleBack = () => {
     setActiveStep(activeStep - 1);
+  };
+  const addData = (e) => {
+    const jobPaymentDetails = JSON.parse(
+      localStorage.getItem("job_details_payment")
+    );
+    let jobDetails = JSON.parse(localStorage.getItem("job_details"));
+
+    jobDetails = {
+      ...jobDetails["0"],
+      ...jobPaymentDetails["0"],
+      approved: false,
+      completed: false,
+    };
+
+    fetch("http://localhost:3001/jobs")
+      .then((response) => response.json())
+      .then((data) => {
+        fetch("http://localhost:3001/jobs", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(jobDetails),
+        }).then((res) => {
+          if (res.status >= 200 && res.status <= 300) {
+            toast("Successfuly Posted Job!");
+            history("/profile");
+          } else {
+            toast("Failed! Contact Support");
+          }
+        });
+      });
   };
 
   return (
@@ -70,7 +106,21 @@ function Home() {
           </Stepper>
           {activeStep === steps.length ? (
             <React.Fragment>
-              <Typography variant="h5" gutterBottom>
+              <Typography variant="h7" gutterBottom>
+                Press the Submit Button to Post Your Request
+              </Typography>
+
+              <Button
+                variant="primary"
+                className="col-lg-12"
+                onClick={addData}
+                style={{ background: "rgb(67, 185, 127)" }}
+                type="submit"
+              >
+                Submit
+              </Button>
+
+              <Typography variant="h7" gutterBottom>
                 Thank you for your order.
               </Typography>
             </React.Fragment>
@@ -96,6 +146,7 @@ function Home() {
           )}
         </Paper>
       </Container>
+      <ToastContainer />
     </ThemeProvider>
   );
 }
