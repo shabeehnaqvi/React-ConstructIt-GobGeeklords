@@ -3,13 +3,11 @@ import CssBaseline from "@mui/material/CssBaseline";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Toolbar from "@mui/material/Toolbar";
 import Paper from "@mui/material/Paper";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
-import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import AddressForm from "./AddressfForm";
@@ -70,6 +68,8 @@ function Home() {
           if (res.status >= 200 && res.status <= 300) {
             toast("Successfuly Posted Job!");
             history("/profile");
+            localStorage.removeItem("job_details");
+            localStorage.removeItem("job_details_payment");
           } else {
             toast("Failed! Contact Support");
           }
@@ -86,7 +86,7 @@ function Home() {
         elevation={0}
         sx={{
           position: "relative",
-          borderBottom: (t) => `1px solid ${t.palette.divider}`,
+          // borderBottom: (t) => `1px solid ${t.palette.divider}`,
         }}
       ></AppBar>
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>

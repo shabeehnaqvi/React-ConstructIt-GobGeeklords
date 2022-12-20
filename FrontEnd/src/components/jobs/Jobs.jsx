@@ -1,21 +1,15 @@
 import React, { useEffect, useState } from "react";
 
-import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
-import CameraIcon from "@mui/icons-material/PhotoCamera";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Link from "@mui/material/Link";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { toast, ToastContainer } from "react-toastify";
 
 const theme = createTheme();
 function Jobs() {
@@ -23,7 +17,7 @@ function Jobs() {
 
   useEffect(() => {
     console.log("=======");
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch("http://localhost:3001/jobs")
       .then((response) => response.json())
       .then((data) => {
         console.log("=======", cards);
@@ -51,16 +45,33 @@ function Jobs() {
                   >
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Typography gutterBottom variant="h5" component="h2">
-                        {card.title}
+                        {card.details}
                       </Typography>
+                      <hr />
                       <Typography gutterBottom variant="h6" component="h3">
-                        Bid:${card.id}
+                        Budget : ${card.budget}
                       </Typography>
-                      <Typography>{card.title}</Typography>
+                      <hr />
+                      <Typography>Worker Required : {card.worker}</Typography>
+                      <Typography>Payment Method : {card.method}</Typography>
                     </CardContent>
                     <CardActions>
-                      <Button size="medium">Accept</Button>
-                      <Button size="medium">Reject</Button>
+                      <Button
+                        onClick={() => {
+                          toast(card.id);
+                        }}
+                        size="medium"
+                      >
+                        Accept
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          toast(card.id);
+                        }}
+                        size="medium"
+                      >
+                        Reject
+                      </Button>
                     </CardActions>
                   </Card>
                 </Grid>
@@ -68,6 +79,7 @@ function Jobs() {
             </Grid>
           </Container>
         </ThemeProvider>
+        <ToastContainer />
       </>
     </div>
   );

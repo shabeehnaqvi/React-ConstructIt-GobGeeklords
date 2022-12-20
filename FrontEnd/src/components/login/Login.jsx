@@ -50,7 +50,7 @@ const Login = () => {
           });
         } else {
           const user = database.find(
-            (data) => data.email == email && data.password == password
+            (data) => data.email === email && data.password === password
           );
 
           if (user) {
