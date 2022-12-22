@@ -55,7 +55,7 @@ const Login = () => {
 
           if (user) {
             toast.success("Welcome " + user.name);
-            localStorage.setItem("user_login", JSON.stringify(user));
+            localStorage.setItem("user_login", JSON.stringif(user));
             localStorage.setItem("islogin", true);
             history("/home");
           } else {

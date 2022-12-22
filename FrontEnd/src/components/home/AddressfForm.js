@@ -13,7 +13,7 @@ export default function AddressForm() {
     address: "",
     city: "",
     state: "",
-    date: "",
+    jobDate: "",
     details: "",
   });
   const getdata = (e) => {
@@ -28,7 +28,8 @@ export default function AddressForm() {
   const addData = (e) => {
     e.preventDefault();
 
-    const { firstName, lastName, address, city, state, date, details } = inpval;
+    const { firstName, lastName, address, city, state, jobDate, details } =
+      inpval;
 
     if (firstName === "" || lastName === "") {
       toast.error("Name field is requred!", {
@@ -46,7 +47,7 @@ export default function AddressForm() {
       toast.error("state field is requred", {
         position: "top-center",
       });
-    } else if (date === "") {
+    } else if (jobDate === "") {
       toast.error("date field is requred", {
         position: "top-center",
       });
@@ -126,7 +127,7 @@ export default function AddressForm() {
         </Grid>
         <Grid item xs={12} sm={6}>
           <Form.Group className="mb-3" controlId="formBasicdate">
-            <Form.Control onChange={getdata} name="date" type="date" />
+            <Form.Control onChange={getdata} name="jobDate" type="date" />
           </Form.Group>
         </Grid>
         <Grid item xs={12} sm={12}>

@@ -46,15 +46,17 @@ function Home() {
     const jobPaymentDetails = JSON.parse(
       localStorage.getItem("job_details_payment")
     );
+    let userDetails = JSON.parse(localStorage.getItem("user_login"));
     let jobDetails = JSON.parse(localStorage.getItem("job_details"));
 
     jobDetails = {
+      ...userDetails,
       ...jobDetails["0"],
       ...jobPaymentDetails["0"],
       approved: false,
       completed: false,
     };
-
+    console.log(jobDetails);
     fetch("http://localhost:3001/jobs")
       .then((response) => response.json())
       .then((data) => {
@@ -71,7 +73,7 @@ function Home() {
             localStorage.removeItem("job_details");
             localStorage.removeItem("job_details_payment");
           } else {
-            toast("Failed! Contact Support");
+            toast("Failed! Contact Support1");
           }
         });
       });
