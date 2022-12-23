@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const Login = () => {
+const LoginEngineer = () => {
   const history = useNavigate();
 
   const [inpval, setInpval] = useState({
@@ -55,7 +55,7 @@ const Login = () => {
 
           if (user) {
             toast.success("Welcome " + user.name);
-            localStorage.setItem("user_login", JSON.stringify(user));
+            localStorage.setItem("user_login", JSON.stringif(user));
             localStorage.setItem("islogin", true);
             history("/home");
           } else {
@@ -79,7 +79,7 @@ const Login = () => {
           style={{ background: `rgba(255, 255, 255, 0.5)` }}
         >
           <div className="mt-3 p-3" style={{ width: "100%" }}>
-            <h3 className="text-center mb-5">User Login</h3>
+            <h3 className="text-center mb-5">Engineer Login</h3>
             <Form>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control
@@ -120,11 +120,11 @@ const Login = () => {
               </span>{" "}
             </p>
             <p className="mt-3">
-              Registered as an Engineer?{" "}
+              Registered as an User?{" "}
               <span
                 style={{ color: "rgb(67, 185, 127)", cursor: "pointer" }}
                 onClick={() => {
-                  history("/loginEngineer");
+                  history("/login");
                 }}
               >
                 Click Here
@@ -138,4 +138,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginEngineer;

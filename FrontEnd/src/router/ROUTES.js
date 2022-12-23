@@ -4,6 +4,7 @@ import Profile from "../components/profile/Profile";
 import Signup from "../components/signup/Signup";
 import Login from "../components/login/Login";
 import Errror from "../components/error/Errror";
+import LoginEngineer from "../components/login/LoginEngineer";
 
 const ROUTES = [
   {
@@ -12,6 +13,7 @@ const ROUTES = [
     element: <Home />,
     path: "/home",
     isProtected: true,
+    isUser: true,
   },
   {
     key: 2,
@@ -19,6 +21,7 @@ const ROUTES = [
     element: <Profile />,
     path: "/profile",
     isProtected: true,
+    isUser: true,
   },
   {
     key: 3,
@@ -26,6 +29,7 @@ const ROUTES = [
     element: <Jobs />,
     path: "/jobs",
     isProtected: true,
+    isUser: false,
   },
   {
     key: 4,
@@ -42,7 +46,14 @@ const ROUTES = [
     isProtected: false,
   },
   {
-    key: 6,
+    key: 5,
+    title: "EngineerLogin",
+    element: <LoginEngineer />,
+    path: "/loginEngineer",
+    isProtected: false,
+  },
+  {
+    key: 7,
     title: "Error",
     element: <Errror />,
     path: "/error",

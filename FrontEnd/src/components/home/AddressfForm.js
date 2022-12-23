@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import { Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import Button from "@mui/material/Button";
+
 export default function AddressForm() {
   const [data, setData] = React.useState([]);
   const [inpval, setInpval] = React.useState({
@@ -15,6 +16,7 @@ export default function AddressForm() {
     state: "",
     jobDate: "",
     details: "",
+    ZipCode: "",
   });
   const getdata = (e) => {
     const { value, name } = e.target;
@@ -126,8 +128,30 @@ export default function AddressForm() {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Form.Group className="mb-3" controlId="formBasicdate">
-            <Form.Control onChange={getdata} name="jobDate" type="date" />
+          <TextField
+            id="state"
+            name="ZipCode"
+            onChange={getdata}
+            label="ZipCode"
+            fullWidth
+            variant="standard"
+          />
+        </Grid>
+        <Grid>
+          <Form.Group
+            // className="mt-4"
+            style={{ marginLeft: "25px", marginTop: "25px" }}
+            controlId="formBasicdate"
+          >
+            <TextField
+              id="date"
+              label="Booking Date"
+              type="date"
+              name="jobDate"
+              defaultValue="2017-05-24"
+              sx={{ width: 220 }}
+              onChange={getdata}
+            />
           </Form.Group>
         </Grid>
         <Grid item xs={12} sm={12}>
