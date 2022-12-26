@@ -12,15 +12,14 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { toast, ToastContainer } from "react-toastify";
 
 const theme = createTheme();
-function Jobs() {
+function Jobsbids() {
   const [cards, setCards] = useState([]);
   function markCompleted(card) {
     toast("The Job Is Rejected");
-    card.appproved = false;
   }
   function markRejected(card) {
     toast("The Job Is Accepted and Marked as complete");
-    card.appproved = true;
+    card.bid.push("User1");
   }
 
   useEffect(() => {
@@ -93,4 +92,4 @@ function Jobs() {
   );
 }
 
-export default Jobs;
+export default Jobsbids;

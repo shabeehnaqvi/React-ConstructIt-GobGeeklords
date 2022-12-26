@@ -33,29 +33,32 @@ export default function AddressForm() {
     const { firstName, lastName, address, city, state, jobDate, details } =
       inpval;
 
-    if (firstName === "" || lastName === "") {
-      toast.error("Name field is requred!", {
+    if (
+      (firstName === "" && firstName.length >= 4 && firstName.length <= 30) ||
+      (lastName === "" && lastName.length >= 4 && lastName.length <= 30)
+    ) {
+      toast.error("Name field is required!", {
         position: "top-center",
       });
     } else if (address === "") {
-      toast.error("Address field is requred", {
+      toast.error("Address field is required", {
         position: "top-center",
       });
     } else if (city === "") {
-      toast.error("city field is requred", {
+      toast.error("city field is required", {
         position: "top-center",
       });
     } else if (state === "") {
-      toast.error("state field is requred", {
+      toast.error("state field is required", {
         position: "top-center",
       });
     } else if (jobDate === "") {
-      toast.error("date field is requred", {
+      toast.error("date field is required", {
         position: "top-center",
       });
     } else if (details === "") {
-      toast.error("details field is requred", {
-        position: "top-center",
+      toast.error("details field is required", {
+        position: "bottom-center",
       });
     } else {
       toast("Next Step");

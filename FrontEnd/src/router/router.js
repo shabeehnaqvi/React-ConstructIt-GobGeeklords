@@ -16,12 +16,8 @@ function Router() {
           path={route.path}
           element={
             <Auth>
-              {route?.isProtected ? (
-                route?.isUser ? (
-                  <Layout children={route.element} />
-                ) : (
-                  <LayoutEngineer children={route.element} />
-                )
+              {route.isProtected ? (
+                <Layout children={route.element} />
               ) : (
                 route.element
               )}
